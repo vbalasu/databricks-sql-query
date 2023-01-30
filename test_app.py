@@ -1,7 +1,8 @@
 import app
 
 def test_handler():
-    import dotenv, os
+    import os
+    import dotenv
     dotenv.load_dotenv()
     options = {
         'server_hostname': os.environ.get('server_hostname'),
