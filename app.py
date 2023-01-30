@@ -17,11 +17,11 @@ def handler(event, context):
 
 def run_sql(options):
     from databricks import sql
-    import os, json
+    import json
     connection = sql.connect(
-                            server_hostname = os.environ.get('server_hostname'),
-                            http_path = os.environ.get('http_path'),
-                            access_token = os.environ.get('access_token'))
+                            server_hostname = options['server_hostname'],
+                            http_path = options['http_path'],
+                            access_token = options['access_token'])
     cursor = connection.cursor()
     cursor.execute(options['query'])
     rows = cursor.fetchall()
